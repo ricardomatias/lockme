@@ -38,7 +38,7 @@ npm install lockme
 var Lockme = require('lockme');
 var lm = new Lockme();
 
-lockme.decrypt('foo', 'hello world!', function(err, decryptedText) {
+lm.decrypt('foo', 'hello world!', function(err, decryptedText) {
     if(err) {
         // do something
     }
