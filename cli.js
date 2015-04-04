@@ -5,6 +5,8 @@ var meow = require('meow');
 var Lockme = require('./');
 var chalk = require('chalk');
 
+var lm = new Lockme();
+
 var cli = meow({
     help: [
         'Usage',
@@ -29,7 +31,7 @@ if (process.stdin.isTTY) {
         return console.log(chalk.yellow('The filename must be a string!'));
     }
 
-    Lockme._readFile(cli.input[0]);
+    lm._readFile(cli.input[0]);
 } else {
-    getStdin(Lockme.readFile);
+    getStdin(lm.readFile);
 }

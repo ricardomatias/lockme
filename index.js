@@ -184,4 +184,4 @@ Lockme.prototype._testSecret = function _testSecret(secret) {
     });
 };
 
-module.exports = exports = new Lockme();
+module.exports = exports = Lockme;

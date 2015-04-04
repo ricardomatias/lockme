@@ -35,7 +35,8 @@ npm install lockme
 ```
 
 ```
-var lockme = require('./index');
+var Lockme = require('lockme');
+var lm = new Lockme();
 
 lockme.decrypt('foo', 'hello world!', function(err, decryptedText) {
     if(err) {

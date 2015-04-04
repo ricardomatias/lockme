@@ -3,8 +3,11 @@
 /* global describe, it: false */
 
 var chai = require('chai');
+var Lockme = require('./');
+
 var expect = chai.expect;
-var lockme = require('./');
+
+var lm = new Lockme();
 
 describe('lockme', function() {
     var secret = 'foo';
@@ -12,14 +15,14 @@ describe('lockme', function() {
 
     it('should return a special symbol followed by an encrypted string', function (done) {
 
-        lockme.encrypt(secret, 'foobar', function(err, encryptedText) {
+        lm.encrypt(secret, 'foobar', function(err, encryptedText) {
             if(err) {
                 return done(err);
             }
 
             str = encryptedText;
 
-            expect(encryptedText[0]).to.eql(lockme.token);
+            expect(encryptedText[0]).to.eql(lm.token);
             return done();
         });
     });
@@ -27,7 +30,7 @@ describe('lockme', function() {
 
     it('should return a decrypted string', function(done) {
 
-        lockme.decrypt(secret, str, function(err, decryptedText) {
+        lm.decrypt(secret, str, function(err, decryptedText) {
             if(err) {
                 return done(err);
             }
@@ -42,9 +45,9 @@ describe('lockme', function() {
 
         var newToken = '\u2622';
 
-        lockme.token = newToken;
+        lm.token = newToken;
 
-        lockme.encrypt(secret, 'foobar', function(err, encryptedText) {
+        lm.encrypt(secret, 'foobar', function(err, encryptedText) {
             if(err) {
                 return done(err);
             }

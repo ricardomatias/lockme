@@ -1,6 +1,6 @@
 {
     "name": "lockme",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Encrypt any text file with a password (CLI)",
     "scripts": {
         "test": "mocha"
