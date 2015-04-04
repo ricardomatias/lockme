@@ -2,7 +2,7 @@
 
 > Encrypt any text file with a password (CLI)
 > 
-> Use with caution. There's no way of unlocking a file without the original secret.
+> **Use with caution. There's no way of unlocking a file without the original secret.**
 
 ## Requirements
 
