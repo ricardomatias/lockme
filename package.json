@@ -39,7 +39,7 @@
         "promptly": "^0.2.1"
     },
     "devDependencies": {
-        "chai": "^2.2.0",
-        "mocha": "^2.2.1"
+        "chai": "^2.3.0",
+        "mocha": "^2.2.5"
     }
 }
