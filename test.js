@@ -57,22 +57,4 @@ describe('lockme', function() {
         });
     });
 
-
-    it('should use a new token', function(done) {
-
-        var newToken = '\u2622';
-
-        lm.token = newToken;
-
-        lm.encrypt(secret, 'foobar', function(err, encryptedText) {
-            if(err) {
-                return done(err);
-            }
-
-            expect(encryptedText[0]).to.eql(newToken);
-            return done();
-        });
-
-    });
-
 });

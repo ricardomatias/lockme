@@ -59,13 +59,13 @@ function exec(filename, done) {
         }
 
         if (lm.isEncrypted(text)) {
-            lm.promptDecryption('What\'s the secret ?', text, function (err, password) {
+            lm.promptDecryption('What\'s the secret ?', text, function (err, password, decryptedText) {
                 if (err) {
                     console.error(err);
                 }
                 var message = 'File unlocked!';
 
-                return lm.writeFile(filename, message, lm.decryptedText, done);
+                return lm.writeFile(filename, message, decryptedText, done);
             });
         } else {
             lm.promptEncryption('Write the secret you want to encrypt with:', text, function (err, password) {

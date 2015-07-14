@@ -36,7 +36,7 @@ npm install lockme
 
 ```
 var Lockme = require('lockme');
-var lm = new Lockme();
+var lm = new Lockme({ token: '\u2603', encoding: 'base64' });
 
 lm.decrypt('foo', 'hello world!', function(err, decryptedText) {
     if(err) {
@@ -55,6 +55,10 @@ The encryption is done with the use of a special *Unicode* character to identify
 This character is assigned to the **token** property, so you can change it to another character.
 
 The **decrypt** method expects exactly **one** character, so it will throw an error in case this changes.
+
+### new Lockme(opts)
+opts.token => the token to encrypt the file with
+opts.encoding => what is the string encoding used to encrypt the file
 
 ### encrypt (secret, text, callback)
 

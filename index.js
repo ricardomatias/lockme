@@ -7,9 +7,11 @@ var chalk = require('chalk');
 var promptly = require('promptly');
 
 
-function Lockme(token, encoding) {
-    this.token = token || '\u2603';
-    this.encoding = encoding || 'hex';
+function Lockme(opts) {
+    opts = opts || {};
+
+    this.token = opts.token || '\u2603';
+    this.encoding = opts.encoding || 'base64';
     this.secret = [];
 }
 
@@ -40,9 +42,7 @@ Lockme.prototype.promptDecryption = function promptDecryption(message, text, cb)
                 return cb(err);
             }
 
-            self.decryptedText = decryptedText;
-
-            return cb(null, secret);
+            return cb(null, secret, decryptedText);
         });
     });
 };
