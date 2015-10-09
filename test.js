@@ -10,51 +10,51 @@ var expect = chai.expect;
 var lm = new Lockme();
 
 describe('lockme', function() {
-    var secret = 'foo';
-    var str;
+  var secret = 'foo';
+  var str;
 
-    it('should return a special symbol followed by an encrypted string', function (done) {
+  it('should return a special symbol followed by an encrypted string', function (done) {
 
-        lm.encrypt(secret, 'foobar', function(err, encryptedText) {
-            if(err) {
-                return done(err);
-            }
+    lm.encrypt(secret, 'foobar', function(err, encryptedText) {
+      if (err) {
+        return done(err);
+      }
 
-            str = encryptedText;
+      str = encryptedText;
 
-            expect(encryptedText[0]).to.eql(lm.token);
-            return done();
-        });
+      expect(encryptedText[0]).to.eql(lm.token);
+      return done();
     });
+  });
 
 
-    it('should return a decrypted string', function(done) {
+  it('should return a decrypted string', function(done) {
 
-        lm.decrypt(secret, str, function(err, decryptedText) {
-            if(err) {
-                return done(err);
-            }
+    lm.decrypt(secret, str, function(err, decryptedText) {
+      if (err) {
+        return done(err);
+      }
 
-            expect(decryptedText).to.eql('foobar');
-            return done();
-        });
+      expect(decryptedText).to.eql('foobar');
+      return done();
     });
+  });
 
 
-    it('should use a new token', function(done) {
+  it('should use a new token', function(done) {
 
-        var newToken = '\u2622';
+    var newToken = '\u2622';
 
-        lm.token = newToken;
+    lm.token = newToken;
 
-        lm.encrypt(secret, 'foobar', function(err, encryptedText) {
-            if(err) {
-                return done(err);
-            }
+    lm.encrypt(secret, 'foobar', function(err, encryptedText) {
+      if (err) {
+        return done(err);
+      }
 
-            expect(encryptedText[0]).to.eql(newToken);
-            return done();
-        });
+      expect(encryptedText[0]).to.eql(newToken);
+      return done();
     });
+  });
 
 });
